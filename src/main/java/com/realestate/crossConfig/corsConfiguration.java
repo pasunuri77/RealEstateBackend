@@ -17,7 +17,8 @@ public class corsConfiguration {
         corsConfiguration.setAllowCredentials(true);
 
         corsConfiguration.setAllowedOrigins(List.of(
-                "http://localhost:4200"
+                "http://localhost:4200",
+                "https://realestate-frontend-sandy.vercel.app/"
         ));
 
         corsConfiguration.setAllowedMethods(List.of(
