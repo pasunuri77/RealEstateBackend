@@ -32,10 +32,11 @@ public class BuildingServiceImpl implements BuildingService {
         Building building = Building.builder()
                 .projectId(request.getProjectId())
                 .name(request.getName())
-                .latitude(request.getLatitude())
-                .longitude(request.getLongitude())
+//                .latitude(request.getLatitude())
+//                .longitude(request.getLongitude())
                 .totalFloors(request.getTotalFloors())
                 .description(request.getDescription())
+//                .address(request.getAddress())
                 .build();
 
         return repository.save(building);
@@ -53,6 +54,9 @@ public class BuildingServiceImpl implements BuildingService {
         building.setName(request.getName());
         building.setTotalFloors(request.getTotalFloors());
         building.setDescription(request.getDescription());
+//        building.setAddress(request.getAddress());
+//        building.setLatitude(request.getLatitude());
+//        building.setLongitude(request.getLongitude());
 
         return repository.save(building);
     }

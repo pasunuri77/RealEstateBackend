@@ -31,6 +31,8 @@ public class ProjectServiceImpl implements ProjectService {
                         request.getCompletedDate())
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
+                .longitude(request.getLongitude())
+                .latitude(request.getLatitude())
                 .build();
 
         return repository.save(project);
@@ -57,6 +59,8 @@ public class ProjectServiceImpl implements ProjectService {
         project.setCompletedDate(
                 request.getCompletedDate());
         project.setUpdatedAt(LocalDateTime.now());
+        project.setLongitude(request.getLongitude());
+        project.setLatitude(request.getLatitude());
 
         return repository.save(project);
     }

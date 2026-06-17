@@ -27,4 +27,8 @@ public class ProjectRequest {
 
     private LocalDate completedDate;
 
+    private Double latitude;
+
+    private Double longitude;
+
 }

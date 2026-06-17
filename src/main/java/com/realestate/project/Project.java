@@ -41,4 +41,10 @@ public class Project {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    private Double latitude;
+
+    private Double longitude;
+
+
 }

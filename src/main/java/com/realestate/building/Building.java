@@ -24,7 +24,9 @@ public class Building {
 
     private String description;
 
-    private Double latitude;
+//    private String address;
 
-    private Double longitude;
+//    private Double latitude;
+//
+//    private Double longitude;
 }
