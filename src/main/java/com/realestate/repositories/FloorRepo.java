@@ -11,6 +11,8 @@ public interface FloorRepo extends JpaRepository<Floor, Long> {
 
     long countByBuildingId(Long buildingId);
 
+    void deleteByBuildingId(Long buildingId);
+
     boolean existsByBuildingIdAndFloorNumber(
             Long buildingId,
             Integer floorNumber);

@@ -9,4 +9,5 @@ public interface BuildingRepo extends JpaRepository<Building,Long> {
 
     List<Building> findByProjectId(Long projectId);
 
+    void deleteByProjectId(Long projectId);
 }

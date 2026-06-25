@@ -1,5 +1,6 @@
 package com.realestate.purchase;
 
+import com.realestate.lease.RequestStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -31,6 +32,9 @@ public class Purchase{
 
     @Column(length = 3000)
     private String message;
+
+    @Enumerated(EnumType.STRING)
+    private RequestStatus status;
 
     private LocalDateTime createdAt;
 }

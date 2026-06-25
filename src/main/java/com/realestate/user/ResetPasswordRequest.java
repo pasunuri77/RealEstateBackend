@@ -1,17 +1,19 @@
 package com.realestate.user;
 
+
 import lombok.*;
 
 @Data
-@Setter
 @Getter
-@NoArgsConstructor
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class VerifyEmailRequest {
+public class ResetPasswordRequest {
 
     private String email;
 
-    private String pin;
+    private String otp;
 
+    private String newPassword;
 }

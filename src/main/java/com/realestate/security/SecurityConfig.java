@@ -52,7 +52,10 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/api/user/login",
                                 "/api/user/register",
-                                "/api/user/verify-email"
+                                "/api/user/verify-email",
+                                "/api/user/forgot-password",
+                                "/api/user/reset-password",
+                                "/api/user/**"
                         ).permitAll()
 
                         // Projects

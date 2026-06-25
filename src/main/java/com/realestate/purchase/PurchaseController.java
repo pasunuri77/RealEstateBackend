@@ -40,6 +40,14 @@ public class PurchaseController {
                 service.getRequestById(id));
     }
 
+    @PutMapping("/{id}/status/{status}")
+    public ResponseEntity<Purchase>
+    updateStatus(@PathVariable Long id, @PathVariable String status) {
+
+        return ResponseEntity.ok(
+                service.updateStatus(id, status));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void>
     deleteRequest(@PathVariable Long id) {

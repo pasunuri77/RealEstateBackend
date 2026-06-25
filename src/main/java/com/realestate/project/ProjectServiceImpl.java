@@ -13,6 +13,15 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepo repository;
 
+    @Autowired
+    private com.realestate.repositories.BuildingRepo buildingRepo;
+
+    @Autowired
+    private com.realestate.repositories.FloorRepo floorRepo;
+
+    @Autowired
+    private com.realestate.repositories.ShopUnitRepo shopUnitRepo;
+
 
     @Override
     public Project createProject(
@@ -90,6 +99,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    @org.springframework.transaction.annotation.Transactional
     public void deleteProject(Long id) {
 
         Project project = repository.findById(id)
@@ -97,6 +107,21 @@ public class ProjectServiceImpl implements ProjectService {
                         new ResourceNotFoundException(
                                 "Project not found"));
 
+        // 1. Find all buildings related to the project
+        java.util.List<com.realestate.building.Building> buildings = buildingRepo.findByProjectId(id);
+
+        // 2. Delete floors related to those buildings
+        for (com.realestate.building.Building building : buildings) {
+            floorRepo.deleteByBuildingId(building.getId());
+        }
+
+        // 3. Delete all buildings related to this project
+        buildingRepo.deleteByProjectId(id);
+
+        // 4. Delete all shop units related to this project
+        shopUnitRepo.deleteByProjectId(id);
+
+        // 5. Finally, delete the project
         repository.delete(project);
     }
 

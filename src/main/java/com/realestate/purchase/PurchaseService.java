@@ -10,6 +10,8 @@ public interface PurchaseService {
 
     List<Purchase> getAllRequests();
 
+    Purchase updateStatus(Long id, String status);
+
     void deleteRequest(Long id);
 
 }

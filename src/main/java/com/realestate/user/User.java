@@ -41,4 +41,13 @@ public class User {
     private String emailPin;
 
     private LocalDateTime pinExpiryTime;
+
+
+    @Column(name = "reset_otp")
+    private String resetOtp;
+
+    @Column(name = "reset_otp_expiry")
+    private LocalDateTime resetOtpExpiry;
+
+    private String pendingEmail;
 }

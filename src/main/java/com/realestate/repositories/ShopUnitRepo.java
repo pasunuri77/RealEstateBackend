@@ -9,6 +9,8 @@ public interface ShopUnitRepo extends JpaRepository<ShopUnit, Long> {
 
     List<ShopUnit> findByProjectId(Long projectId);
 
+    void deleteByProjectId(Long projectId);
+
     long countByFloorId(Long floorId);
 
     boolean existsByFloorIdAndUnitNumber(

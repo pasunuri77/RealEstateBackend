@@ -1,6 +1,7 @@
 package com.realestate.purchase;
 
 import com.realestate.exception.ResourceNotFoundException;
+import com.realestate.lease.RequestStatus;
 import com.realestate.repositories.PurchaseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ public class PurchaseServiceImpl implements PurchaseService {
                         .email(request.getEmail())
                         .budget(request.getBudget())
                         .message(request.getMessage())
+                        .status(RequestStatus.PENDING)
                         .createdAt(
                                 LocalDateTime.now())
                         .build();
@@ -45,6 +47,13 @@ public class PurchaseServiceImpl implements PurchaseService {
     @Override
     public List<Purchase> getAllRequests() {
         return repository.findAll();
+    }
+
+    @Override
+    public Purchase updateStatus(Long id, String status) {
+        Purchase request = getRequestById(id);
+        request.setStatus(RequestStatus.valueOf(status.toUpperCase()));
+        return repository.save(request);
     }
 
     @Override
