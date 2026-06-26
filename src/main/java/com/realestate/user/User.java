@@ -50,4 +50,6 @@ public class User {
     private LocalDateTime resetOtpExpiry;
 
     private String pendingEmail;
+
+    private String companyAddress;
 }

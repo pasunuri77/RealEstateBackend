@@ -63,6 +63,7 @@ public class UserServiceImpl implements UserService {
                 .pinExpiryTime(
                         LocalDateTime.now()
                                 .plusMinutes(5))
+                .companyAddress(request.getCompanyAddress())
                 .build();
 
         User savedUser =
@@ -112,6 +113,7 @@ public class UserServiceImpl implements UserService {
                 .lastName(user.getLastName())
                 .phone(user.getPhone())
                 .id(user.getId())
+                .companyAddress(user.getCompanyAddress())
                 .build();
     }
 

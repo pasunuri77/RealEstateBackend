@@ -17,4 +17,5 @@ public class LoginResponse {
     private String lastName;
     private String phone;
     private Long id;
+    private String companyAddress;
 }

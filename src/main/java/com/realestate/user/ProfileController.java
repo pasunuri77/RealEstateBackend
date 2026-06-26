@@ -53,6 +53,7 @@ public class ProfileController {
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
         user.setPhone(request.getPhone());
+        user.setCompanyAddress(request.getCompanyAddress());
 
         User saved = userRepository.save(user);
         saved.setPassword(null);
